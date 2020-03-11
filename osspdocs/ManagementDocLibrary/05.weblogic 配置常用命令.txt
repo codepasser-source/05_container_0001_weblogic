@@ -1,0 +1,45 @@
+ls
+pwd
+ll
+id user
+chown -R
+chmod 755 
+
+
+
+#=================================创建weblogic用户组。
+[root@admin /]# groupadd weblogic
+[root@admin /]# useradd -g weblogic weblogic
+[root@admin /]# passwd weblogic     #修改weblogic密码
+
+#=================================创建/usr/local/weblogic/目录
+[root@admin /]# mkdir -p /usr/local/weblogic/
+
+#=================================修改目录所有者权限
+[root@admin /]# chown -Rf weblogic:weblogic /usr/local/weblogic/ 
+
+
+#=================================创建用户密码配置文件
+boot.properties
+
+#=================================以服务的形式启动
+nohup ./startWebLogic.sh &
+#=================================控制台形式打开启动日志文件
+tail -f nohup.out 
+
+#=================================查找weblogic PID
+ps -ef|grep weblogic
+
+#=================================强制停止服务
+kill -9 pid
+
+find database/ -name "db_install.rsp"
+
+
+tar -cxf ***.tar  ***
+
+
+
+
+
+ python -m SimpleHTTPServer 10000

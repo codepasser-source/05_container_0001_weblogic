@@ -1,0 +1,41 @@
+1、删除domain目录
+
+<MIDDLEWARE_HOME>/user_projects/domains/<domainDirectory>
+
+例如：D:\Oracle\middleware\user_projects\domains\base_domain
+
+ 
+
+2、删除domain-registry.xml中有关该domain的条目
+
+<?xml version="1.0" encoding="UTF-8"?>
+ <domain-registry xmlns="http://xmlns.oracle.com/weblogic/domain-registry">
+   <domain location="D:\Oracle\middleware\user_projects\domains\bifoundation_domain"/>
+   <domain location="D:\Oracle\middleware\user_projects\domains\base_domain"/>
+</domain-registry>
+
+删除红色部分
+
+注：domain-registry.xml位于<MIDDLEWARE_HOME>之下
+
+ 
+
+3、删除nodemanager.domains中有关该domain的条目
+
+#Domains and directories created by Configuration Wizard
+ #Fri Apr 06 13:09:46 CST 2012
+base_domain=D\:\\Oracle\\middleware\\user_projects\\domains\\base_domain
+bifoundation_domain=D\:\\Oracle\\middleware\\user_projects\\domains\\bifoundation_domain
+
+
+删除红色部分
+
+注：nodemanager.domains位于<MIDDLEWARE_HOME>\wlserver_10.3\common\nodemanager之下
+
+ 
+
+至此，domain已经彻底的被移除了。
+
+ 
+
+注：删除domain不需要更改Metadata Service (MDS)
